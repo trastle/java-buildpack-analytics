@@ -23,6 +23,9 @@ require 'java_buildpack/buildpack'
 
 build_dir = ARGV[0]
 
+system("ulimit -a")
+system("df -h")
+
 output = JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Release failed with exception %s') do |buildpack|
   buildpack.release
 end
